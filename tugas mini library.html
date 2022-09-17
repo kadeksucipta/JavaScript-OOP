@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Library</title>
+    <style>
+        body{
+            margin: 2px;
+            padding: 2px;
+        }
+        h1{
+            font-family: tw cen mt;
+            text-align: center;
+           
+        }
+        table{
+            font-family: tw cen mt;
+            font-size: 18px;
+        }
+        
+    </style>
+    
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Kadek Sucipta Mini Library</h1>
+        <br>
+        <div id="app"></div>
+        
+    </div>
+    
+
+  </head>
+    <script>
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    </script>
+
+    <script type="module">
+
+        class Table{
+            constructor(init) {
+                this.init = init
+            }
+
+            createHeader(data) {
+                let open = "<thead><trO>"
+                let close = "</tr><thead>"
+                data.forEach((d) => {
+                open += `<th class= "table-success table-secondary">${d}</th>`
+                });
+
+                return open + close
+            }
+            
+            createBody(data){
+                let open = "<tbody>"
+                let close = "</tbody>"
+
+                data.forEach((d) => {
+                    open += `
+                    <tr>
+                        <td>${d[0]}</td>
+                        <td>${d[1]}</td>
+                        <td>${d[2]}</td>
+                        <td>${d[3]}</td>
+                        <td>${d[4]}</td>
+                    </tr>`
+                    
+                })
+
+                return open + close
+            }
+
+            render(element){
+                let table = 
+                "<table class='table table-bordered table-success table-striped'>" +
+                this.createHeader(this.init.colums) +
+                this.createBody(this.init.data) +
+                "</table>"
+                element.innerHTML = table
+            }
+        }
+
+        const table = new Table({
+        colums : ["No","Name", "Asal Kota", "L/P", "Email"],
+        data : [
+            ["1","Kadek Sucipta", "Mataram", "L", "kadek.sucipta005@gmail.com"],
+            ["2","Rafly Fhariz", "Surabaya", "L","Rf.fharizy@gmail.com"],
+            ["3","Reza Davi A", "Jawa Barat", "L", "davi_adrianto@gmail.com"],
+            ["4","Angga Raditya P", "Jakarta", "L", "ar.pramana@gmail.com"],
+            ["5", "Dista Putri Indria", "Bandung", "P", "putriindria@gmamil.com"]
+           
+            ]
+        })
+        const app = document.getElementById("app")
+        table.render(app)
+        
+
+    </script>
+</body>
+</html>

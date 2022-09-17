@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class</title>
+</head>
+<body>
+    <script>
+        class Orang{ //class
+            constructor(name){
+                this.name = name
+                console.log("coding has been created")
+            }
+
+            kuliah() {
+                console.log("sedang kuliah")
+            }
+            static jalan (){
+                console.log("sedang jalan")
+            }
+        } 
+
+        class pekerjaan extends Orang {
+            constructor(name){
+                super(name)
+            }
+        }
+
+        const programing = new pekerjaan ("kadek")
+        console.log(programing.kuliah())
+
+        
+        // const kadek = new Orang("kadek sucipta") //untuk membuat objek
+        // console.log(kadek.name)
+
+        // kadek.jalan()
+        // kadek.umur = 18 //property
+        // kadek.makan = function(){ //fungsi
+        //     console.log("kadek sedang makan")
+        // }
+        // console.log(kadek.makan) //mirip seperti RUN
+
+        // Orang.jalan()
+
+
+    </script>
+</body>
+</html>
